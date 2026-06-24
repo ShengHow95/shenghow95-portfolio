@@ -61,11 +61,13 @@ jobs:
 
       - name: Static HTML export with Nuxt
         run: bun run generate
+        env:
+          NUXT_APP_BASE_URL: /shenghow95-portfolio/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
 
   # Deployment job
   deploy:
